@@ -82,6 +82,22 @@
 	};
 };
 
+&mt_pmic_vgp1_ldo_reg {
+	regulator-always-on;
+};
+&i2c1 {
+		hynitron@5d{
+			compatible = "hynitron,hyn_ts";
+			reg = <0x1a>;
+			interrupt-parent = <&eintc>;
+			interrupts = <5 0x02>;
+			hynitron,reset-gpio = <&pio 18 1>;
+			hynitron,irq-gpio = <&pio 56 2>;
+			hynitron,max-touch-number = <5>;
+			hynitron,display-coords =  <720 720>;
+		};
+};
+
 &i2c2 {
 /* start sensor */
 	gsensor@4c {
